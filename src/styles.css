@@ -1,20 +1,634 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap');
-:root{font-family:"Montserrat",Arial,sans-serif;color:#111;background:#0a0a0a;font-synthesis:none;--paper:#f7f6f2;--muted:#797771;--line:rgba(17,17,17,.18);--page-gutter:clamp(24px,7vw,112px)}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;min-width:320px;min-height:100vh;-webkit-font-smoothing:antialiased}a{color:inherit;text-decoration:none}img{display:block;max-width:100%}
-.site-header{position:absolute;inset:0 0 auto;z-index:5;height:88px;display:flex;align-items:center;justify-content:space-between;padding:0 var(--page-gutter);color:#fff;font-size:11px;font-weight:700;letter-spacing:.14em}.site-header nav{display:flex;gap:clamp(18px,2.5vw,40px)}.site-header a{transition:opacity .2s}.site-header a:hover{opacity:.55}.site-header--light{position:static;color:#111;border-bottom:1px solid var(--line);background:var(--paper)}.brand{white-space:nowrap}
-.hero{position:relative;min-height:100svh;overflow:hidden;background:#111;color:#fff}.hero__image{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 52%;transform:scale(1.015);animation:settle 1.4s ease-out both}.hero__veil{position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,0,0,.7),rgba(0,0,0,.2) 58%,rgba(0,0,0,.38)),linear-gradient(0deg,rgba(0,0,0,.55),transparent 60%)}.hero__content{position:absolute;z-index:2;left:var(--page-gutter);bottom:clamp(52px,8vh,100px)}.eyebrow,.kicker{margin:0;font-size:11px;font-weight:700;letter-spacing:.0em;text-transform:uppercase}.hero .eyebrow{margin-bottom:30px;font-weight:500}.hero h1{margin:0 0 18px;font-size:clamp(76px,10vw,176px);line-height:.92;letter-spacing:.0em;font-weight:700}.hero__subtitle{margin:0;font-size:clamp(16px,1.45vw,28px);line-height:1.45;letter-spacing:0}.hero__scroll{position:absolute;z-index:3;right:var(--page-gutter);bottom:48px;font-size:28px}@keyframes settle{from{transform:scale(1.07);opacity:.6}}
-.works{background:var(--paper);padding:clamp(80px,9vw,150px) clamp(24px,7vw,112px) clamp(100px,12vw,190px)}.section-heading{display:flex;justify-content:space-between;align-items:start;margin-bottom:52px}.section-heading__aside{margin:0;text-align:right;color:var(--muted);font-size:11px;line-height:1.6;letter-spacing:.08em}.project-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:clamp(22px,3vw,52px);row-gap:clamp(62px,7vw,112px)}.project-card{display:block}.project-card__image-wrap{position:relative;aspect-ratio:3/2;overflow:hidden;background:#e6e4de}.project-card img{width:100%;height:100%;object-fit:cover;transition:transform .55s cubic-bezier(.2,.65,.25,1)}.project-card:hover img{transform:scale(1.025)}.project-card__index{position:absolute;top:0;right:0;min-width:42px;padding:9px 8px;background:var(--paper);font-size:10px;text-align:center}.project-card__text{padding-top:20px}.project-card h2{margin:0 0 9px;font-size:clamp(22px,2vw,34px);line-height:1.08;letter-spacing:.04em}.project-card p{min-height:32px;margin:0 0 22px;color:#66635d;font-size:12px;line-height:1.45}.project-card__text>span{font-size:12px;font-weight:700}.project-card__text>span span{display:inline-block;transition:transform .2s}.project-card:hover .project-card__text>span span{transform:translateX(5px)}
-.footer{min-height:150px;padding:0 clamp(24px,7vw,112px);display:flex;align-items:center;justify-content:space-between;gap:24px;background:#0a0a0a;color:#fff;font-size:10px;font-weight:600;letter-spacing:.12em}.footer p{margin:0}.footer div{display:flex;gap:28px}.paper-page{min-height:100vh;background:var(--paper)}.work-page{padding:38px clamp(24px,7vw,112px) 0}.back{display:inline-block;margin-bottom:clamp(70px,9vw,140px);font-size:12px;font-weight:600}.work-hero{max-width:1200px}.work-hero .kicker{margin-bottom:28px;color:#65625d}.work-hero h1{max-width:1300px;margin:0;font-size:clamp(48px,7.3vw,126px);line-height:.94;letter-spacing:-.065em}.work-hero__meta{margin:28px 0 0;color:#66635d;font-size:clamp(13px,1.1vw,18px);line-height:1.5}.work-cover{margin:clamp(90px,12vw,190px) 0 0}.work-cover img{width:100%;max-height:82vh;object-fit:cover}.work-cover figcaption{padding-top:13px;color:#6f6c65;font-size:11px;text-transform:uppercase;letter-spacing:.08em}.work-description{display:grid;grid-template-columns:minmax(160px,1fr) minmax(0,2fr);gap:56px;padding:clamp(90px,10vw,160px) 0;border-bottom:1px solid var(--line)}.work-description__copy{max-width:880px}.work-description__copy p{margin:0 0 1.2em;font-size:clamp(17px,1.45vw,24px);line-height:1.52;letter-spacing:-.02em}.work-description__copy .lead{font-size:clamp(24px,2.6vw,44px);line-height:1.25;letter-spacing:-.04em}.work-description__copy .work-note{margin-top:2.5em;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase}.work-end{display:flex;justify-content:space-between;gap:32px;padding:56px 0 80px}.work-end p{margin:0;color:#77736d;font-size:10px;letter-spacing:.12em}.work-end a{max-width:70%;text-align:right;font-size:clamp(20px,2.5vw,42px);font-weight:700;letter-spacing:-.04em}
-.info-page main{padding:46px clamp(24px,7vw,112px) clamp(100px,12vw,190px)}.info-page .kicker{color:#6a6761;margin-bottom:38px}.info-page h1{max-width:1150px;margin:0 0 clamp(70px,10vw,150px);font-size:clamp(42px,6vw,104px);line-height:1.02;letter-spacing:.06em}.about-copy{display:grid;grid-template-columns:repeat(2,1fr);gap:40px;margin-left:25%}.about-copy p{margin:0;font-size:clamp(17px,1.6vw,26px);line-height:1.55}.cv-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:40px;border-top:1px solid var(--line);padding-top:26px}.cv-grid p{margin:0;font-size:15px;line-height:1.7}.not-found{min-height:100vh;display:grid;place-content:center;gap:16px;padding:24px;text-align:center;background:var(--paper)}.not-found p,.not-found h1{margin:0}.not-found p{font-size:11px;letter-spacing:.2em}.not-found a{font-size:13px}
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap");
 
-/* Unified page grid and calmer display typography. */
-.works{padding-left:var(--page-gutter);padding-right:var(--page-gutter)}
-.footer{padding-left:var(--page-gutter);padding-right:var(--page-gutter)}
-.work-page{padding-left:var(--page-gutter);padding-right:var(--page-gutter)}
-.info-page main{padding-left:var(--page-gutter);padding-right:var(--page-gutter)}
-.project-card h2{line-height:1.12;letter-spacing:.012em}
-.work-hero h1{line-height:.98;letter-spacing:.022em}
-.work-description__copy .lead{line-height:1.3;letter-spacing:.015em}
-.work-end a{letter-spacing:.012em}
-.info-page h1{line-height:1.06;letter-spacing:.0em}
-@media(max-width:760px){.site-header{height:68px;padding:0 20px}.site-header nav{gap:15px}.site-header nav a:nth-child(3),.site-header nav a:nth-child(4){display:none}.hero__content{left:20px;right:20px;bottom:52px}.hero .eyebrow{margin-bottom:18px;font-size:9px}.hero h1{font-size:clamp(62px,23vw,100px)}.hero__subtitle{font-size:15px;max-width:330px}.desktop-only,.hero__scroll{display:none}.works{padding:70px 20px 100px}.section-heading{margin-bottom:36px}.section-heading__aside{display:none}.project-grid{grid-template-columns:1fr;row-gap:64px}.project-card h2{font-size:25px}.project-card p{min-height:0}.footer{min-height:130px;align-items:flex-start;flex-direction:column;justify-content:center;padding:32px 20px}.work-page{padding:28px 20px 0}.back{margin-bottom:68px}.work-hero .kicker{margin-bottom:20px}.work-hero h1{font-size:clamp(46px,15vw,70px)}.work-cover{margin-top:76px}.work-cover img{aspect-ratio:4/3;object-fit:cover}.work-description{grid-template-columns:1fr;gap:32px;padding:76px 0}.work-description__copy .lead{font-size:25px}.work-description__copy p{font-size:16px}.work-end{display:block}.work-end a{display:block;max-width:none;margin-top:20px;text-align:left}.info-page main{padding:28px 20px 100px}.info-page h1{margin-bottom:70px}.about-copy,.cv-grid{grid-template-columns:1fr;margin-left:0}}
-@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}}
+/* ================================================================
+   ПУЛЬТ НАСТРОЕК
+
+   Это главные значения сайта. Если захочется что-то подправить,
+   начинай отсюда — остальные правила можно не трогать.
+   ================================================================ */
+
+:root {
+  /* Цвета */
+  --color-black: #0a0a0a;
+  --color-text: #111111;
+  --color-paper: #f7f6f2;
+  --color-muted: #706d67;
+  --color-image-placeholder: #e6e4de;
+  --color-line: rgba(17, 17, 17, 0.18);
+
+  /* Шрифт */
+  --font-main: "Montserrat", Arial, sans-serif;
+
+  /* Общая направляющая слева и справа */
+  --page-gutter: clamp(24px, 7vw, 112px);
+  --mobile-gutter: 20px;
+
+  /* Межбуквенные расстояния */
+  --tracking-hero: 0em;
+  --tracking-title: 0.012em;
+  --tracking-small: 0.12em;
+  --tracking-body: 0.015em;
+
+  /* Скругления — сейчас сайт остаётся строгим */
+  --radius: 0px;
+}
+
+/* ================================================================
+   БАЗОВЫЕ ПРАВИЛА
+   ================================================================ */
+
+* { box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+  background: var(--color-black);
+}
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  margin: 0;
+  color: var(--color-text);
+  background: var(--color-black);
+  font-family: var(--font-main);
+  font-synthesis: none;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+a { color: inherit; text-decoration: none; }
+img { display: block; max-width: 100%; }
+
+.paper-page {
+  min-height: 100vh;
+  background: var(--color-paper);
+}
+
+.eyebrow,
+.kicker {
+  margin: 0;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: var(--tracking-small);
+  text-transform: uppercase;
+}
+
+/* ================================================================
+   ШАПКА
+   ================================================================ */
+
+.site-header {
+  position: absolute;
+  z-index: 5;
+  top: 0;
+  right: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 88px;
+  padding: 0 var(--page-gutter);
+  color: #ffffff;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: var(--tracking-small);
+}
+
+.site-header nav {
+  display: flex;
+  gap: clamp(18px, 2.5vw, 40px);
+}
+
+.site-header a { transition: opacity 0.2s ease; }
+.site-header a:hover { opacity: 0.55; }
+
+.site-header--light {
+  position: static;
+  color: var(--color-text);
+  background: var(--color-paper);
+  border-bottom: 1px solid var(--color-line);
+}
+
+.brand { white-space: nowrap; }
+
+/* ================================================================
+   ГЛАВНАЯ — ОБЛОЖКА
+   ================================================================ */
+
+.hero {
+  position: relative;
+  min-height: 100svh;
+  overflow: hidden;
+  color: #ffffff;
+  background: #111111;
+}
+
+.hero__image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 52%;
+  transform: scale(1.015);
+  animation: settle 1.4s ease-out both;
+}
+
+.hero__veil {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.2) 58%, rgba(0, 0, 0, 0.38)),
+    linear-gradient(0deg, rgba(0, 0, 0, 0.55), transparent 60%);
+}
+
+.hero__content {
+  position: absolute;
+  z-index: 2;
+  bottom: clamp(52px, 8vh, 100px);
+  left: var(--page-gutter);
+}
+
+.hero .eyebrow {
+  margin-bottom: 30px;
+  font-weight: 500;
+}
+
+.hero h1 {
+  margin: 0 0 18px;
+  font-size: clamp(76px, 10vw, 176px);
+  font-weight: 700;
+  line-height: 0.92;
+  letter-spacing: var(--tracking-hero);
+}
+
+.hero__subtitle {
+  margin: 0;
+  font-size: clamp(16px, 1.45vw, 28px);
+  line-height: 1.45;
+}
+
+.hero__scroll {
+  position: absolute;
+  z-index: 3;
+  right: var(--page-gutter);
+  bottom: 48px;
+  font-size: 28px;
+}
+
+@keyframes settle {
+  from { opacity: 0.6; transform: scale(1.07); }
+}
+
+/* ================================================================
+   ГЛАВНАЯ — ПРОЕКТЫ
+   ================================================================ */
+
+.works {
+  padding: clamp(80px, 9vw, 150px) var(--page-gutter) clamp(100px, 12vw, 190px);
+  background: var(--color-paper);
+}
+
+.section-heading {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 52px;
+}
+
+.section-heading__aside {
+  margin: 0;
+  color: var(--color-muted);
+  font-size: 11px;
+  line-height: 1.6;
+  letter-spacing: 0.08em;
+  text-align: right;
+}
+
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: clamp(22px, 3vw, 52px);
+  row-gap: clamp(62px, 7vw, 112px);
+}
+
+.project-card { display: block; }
+
+.project-card__image-wrap {
+  position: relative;
+  aspect-ratio: 3 / 2;
+  overflow: hidden;
+  background: var(--color-image-placeholder);
+  border-radius: var(--radius);
+}
+
+.project-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.55s cubic-bezier(0.2, 0.65, 0.25, 1);
+}
+
+.project-card:hover img { transform: scale(1.025); }
+
+.project-card__index {
+  position: absolute;
+  top: 0;
+  right: 0;
+  min-width: 42px;
+  padding: 9px 8px;
+  background: var(--color-paper);
+  font-size: 10px;
+  text-align: center;
+}
+
+.project-card__text { padding-top: 20px; }
+
+.project-card h2 {
+  margin: 0 0 9px;
+  font-size: clamp(22px, 2vw, 34px);
+  line-height: 1.12;
+  letter-spacing: var(--tracking-title);
+}
+
+.project-card p {
+  min-height: 32px;
+  margin: 0 0 22px;
+  color: #66635d;
+  font-size: 12px;
+  line-height: 1.45;
+}
+
+.project-card__text > span { font-size: 12px; font-weight: 700; }
+.project-card__text > span span { display: inline-block; transition: transform 0.2s ease; }
+.project-card:hover .project-card__text > span span { transform: translateX(5px); }
+
+/* ================================================================
+   СТРАНИЦА ПРОЕКТА
+   ================================================================ */
+
+.work-page { padding: 38px var(--page-gutter) 0; }
+
+.back {
+  display: inline-block;
+  margin-bottom: clamp(70px, 9vw, 140px);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.work-hero { max-width: 1200px; }
+
+.work-hero .kicker {
+  margin-bottom: 28px;
+  color: #65625d;
+}
+
+.work-hero h1 {
+  max-width: 1300px;
+  margin: 0;
+  font-size: clamp(48px, 7.3vw, 126px);
+  line-height: 0.98;
+  letter-spacing: 0.022em;
+}
+
+.work-hero__meta {
+  margin: 28px 0 0;
+  color: #66635d;
+  font-size: clamp(13px, 1.1vw, 18px);
+  line-height: 1.5;
+}
+
+.work-cover { margin: clamp(90px, 12vw, 190px) 0 0; }
+
+.work-cover img {
+  width: 100%;
+  max-height: 82vh;
+  object-fit: cover;
+}
+
+.work-cover figcaption {
+  padding-top: 13px;
+  color: #6f6c65;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.work-description {
+  display: grid;
+  grid-template-columns: minmax(160px, 1fr) minmax(0, 2fr);
+  gap: 56px;
+  padding: clamp(90px, 10vw, 160px) 0;
+  border-bottom: 1px solid var(--color-line);
+}
+
+.work-description__copy { max-width: 880px; }
+
+.work-description__copy p {
+  margin: 0 0 1.2em;
+  font-size: clamp(17px, 1.45vw, 24px);
+  line-height: 1.52;
+  letter-spacing: var(--tracking-body);
+}
+
+.work-description__copy .lead {
+  font-size: clamp(24px, 2.6vw, 44px);
+  line-height: 1.3;
+}
+
+.work-description__copy .work-note {
+  margin-top: 2.5em;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.work-end {
+  display: flex;
+  justify-content: space-between;
+  gap: 32px;
+  padding: 56px 0 80px;
+}
+
+.work-end p {
+  margin: 0;
+  color: #77736d;
+  font-size: 10px;
+  letter-spacing: var(--tracking-small);
+}
+
+.work-end a {
+  max-width: 70%;
+  font-size: clamp(20px, 2.5vw, 42px);
+  font-weight: 700;
+  letter-spacing: var(--tracking-title);
+  text-align: right;
+}
+
+/* ================================================================
+   ABOUT И CV
+   ================================================================ */
+
+.info-page main { padding: 46px var(--page-gutter) clamp(100px, 12vw, 190px); }
+.info-page .kicker { margin-bottom: 38px; color: #6a6761; }
+
+.info-page h1 {
+  max-width: 1150px;
+  margin: 0 0 clamp(70px, 10vw, 150px);
+  font-size: clamp(42px, 6vw, 104px);
+  line-height: 1.06;
+  letter-spacing: var(--tracking-hero);
+}
+
+.about-copy {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 40px;
+  margin-left: 25%;
+}
+
+.about-copy p {
+  margin: 0;
+  font-size: clamp(17px, 1.6vw, 26px);
+  line-height: 1.55;
+}
+
+.cv-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+  padding-top: 26px;
+  border-top: 1px solid var(--color-line);
+}
+
+.cv-grid p { margin: 0; font-size: 15px; line-height: 1.7; }
+
+/* ================================================================
+   ПОДВАЛ И СТРАНИЦА-ЗАГЛУШКА
+   ================================================================ */
+
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  min-height: 150px;
+  padding: 0 var(--page-gutter);
+  color: #ffffff;
+  background: var(--color-black);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: var(--tracking-small);
+}
+
+.footer p { margin: 0; }
+.footer div { display: flex; gap: 28px; }
+
+.not-found {
+  display: grid;
+  place-content: center;
+  gap: 16px;
+  min-height: 100vh;
+  padding: 24px;
+  background: var(--color-paper);
+  text-align: center;
+}
+
+.not-found p,
+.not-found h1 { margin: 0; }
+.not-found p { font-size: 11px; letter-spacing: 0.2em; }
+.not-found a { font-size: 13px; }
+
+/* ================================================================
+   ПЛАНШЕТ И ГОРИЗОНТАЛЬНЫЙ ТЕЛЕФОН
+   ================================================================ */
+
+@media (max-width: 980px) {
+  :root { --page-gutter: 32px; }
+  .hero h1 { font-size: clamp(76px, 12vw, 118px); }
+  .project-grid { column-gap: 24px; }
+  .work-description { grid-template-columns: 1fr 2fr; gap: 32px; }
+}
+
+/* ================================================================
+   МОБИЛЬНАЯ ВЕРСИЯ
+
+   Композиция собрана заново: меньше шапка, крупная типографика,
+   одна колонка проектов и полноширинная обложка проекта.
+   ================================================================ */
+
+@media (max-width: 760px) {
+  :root {
+    --page-gutter: var(--mobile-gutter);
+    --tracking-small: 0.1em;
+  }
+
+  .site-header {
+    height: 62px;
+    padding: 0 var(--mobile-gutter);
+    font-size: 9px;
+  }
+
+  .site-header nav { gap: 14px; }
+  .site-header nav a:nth-child(3),
+  .site-header nav a:nth-child(4) { display: none; }
+
+  .hero { min-height: 100svh; }
+  .hero__image { object-position: 42% center; transform: none; }
+
+  .hero__veil {
+    background:
+      linear-gradient(180deg, rgba(0, 0, 0, 0.16), transparent 34%),
+      linear-gradient(0deg, rgba(0, 0, 0, 0.65), transparent 66%);
+  }
+
+  .hero__content {
+    right: var(--mobile-gutter);
+    bottom: max(32px, env(safe-area-inset-bottom));
+    left: var(--mobile-gutter);
+  }
+
+  .hero .eyebrow { margin-bottom: 18px; font-size: 9px; }
+
+  .hero h1 {
+    margin-bottom: 16px;
+    font-size: clamp(56px, 18.5vw, 76px);
+    line-height: 0.86;
+  }
+
+  .hero__subtitle { max-width: 330px; font-size: 14px; line-height: 1.4; }
+  .hero__scroll,
+  .desktop-only { display: none; }
+
+  .works { padding: 64px var(--mobile-gutter) 104px; }
+  .section-heading { margin-bottom: 32px; }
+  .section-heading__aside { display: none; }
+
+  .project-grid {
+    grid-template-columns: 1fr;
+    row-gap: 64px;
+  }
+
+  .project-card__image-wrap { aspect-ratio: 4 / 3; }
+  .project-card__index { min-width: 38px; padding: 8px 7px; font-size: 9px; }
+  .project-card__text { padding-top: 16px; }
+
+  .project-card h2 {
+    margin-bottom: 8px;
+    font-size: clamp(24px, 7vw, 30px);
+    line-height: 1.08;
+  }
+
+  .project-card p { min-height: 0; margin-bottom: 18px; font-size: 11px; }
+  .project-card__text > span { font-size: 11px; }
+  .site-header--light { position: static; }
+
+  .work-page {
+    padding: 24px var(--mobile-gutter) 0;
+    overflow: hidden;
+  }
+
+  .back { margin-bottom: 72px; font-size: 11px; }
+  .work-hero .kicker { max-width: 90%; margin-bottom: 18px; font-size: 9px; line-height: 1.45; }
+
+  .work-hero h1 {
+    font-size: clamp(42px, 13vw, 62px);
+    line-height: 0.96;
+    letter-spacing: 0.01em;
+    overflow-wrap: anywhere;
+  }
+
+  .work-hero__meta { max-width: 92%; margin-top: 18px; font-size: 12px; }
+  .work-cover { margin: 68px calc(var(--mobile-gutter) * -1) 0; }
+
+  .work-cover img {
+    width: 100%;
+    max-height: none;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+  }
+
+  .work-cover figcaption { padding: 12px var(--mobile-gutter) 0; font-size: 9px; line-height: 1.45; }
+
+  .work-description {
+    grid-template-columns: 1fr;
+    gap: 32px;
+    padding: 76px 0;
+  }
+
+  .work-description__copy p { font-size: 16px; line-height: 1.6; letter-spacing: 0; }
+  .work-description__copy .lead { font-size: 24px; line-height: 1.32; letter-spacing: 0.006em; }
+  .work-description__copy .work-note { margin-top: 3em; font-size: 10px; }
+
+  .work-end { display: block; padding: 40px 0 64px; }
+
+  .work-end a {
+    display: block;
+    max-width: none;
+    margin-top: 18px;
+    font-size: 25px;
+    line-height: 1.15;
+    text-align: left;
+  }
+
+  .info-page main { padding: 24px var(--mobile-gutter) 100px; }
+  .info-page .back { margin-bottom: 72px; }
+  .info-page .kicker { margin-bottom: 22px; }
+
+  .info-page h1 {
+    margin-bottom: 72px;
+    font-size: clamp(40px, 12vw, 58px);
+    line-height: 1;
+  }
+
+  .about-copy,
+  .cv-grid { grid-template-columns: 1fr; gap: 28px; margin-left: 0; }
+  .about-copy p { font-size: 18px; }
+
+  .footer {
+    min-height: 156px;
+    padding: 36px var(--mobile-gutter);
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 28px;
+  }
+}
+
+/* Горизонтальная мобила: проекты используют доступную ширину. */
+@media (max-width: 900px) and (orientation: landscape) {
+  .site-header { height: 56px; }
+  .hero__content { bottom: 24px; }
+  .hero .eyebrow { margin-bottom: 12px; }
+
+  .hero h1 {
+    margin-bottom: 10px;
+    font-size: clamp(52px, 11vw, 78px);
+  }
+
+  .hero__subtitle { font-size: 12px; }
+  .works { padding-top: 56px; }
+
+  .project-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 20px;
+    row-gap: 56px;
+  }
+
+  .project-card h2 { font-size: 22px; }
+  .work-hero h1 { font-size: clamp(44px, 9vw, 72px); }
+  .work-cover { margin-top: 56px; }
+}
+
+/* Уважает настройку «уменьшение движения» в системе. */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
