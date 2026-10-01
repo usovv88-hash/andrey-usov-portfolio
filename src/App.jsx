@@ -110,7 +110,7 @@ const exhibitions = [
     "«Красненькая антибиеннале. Р.И.М.» — Санкт-Петербург. Куратор: Екатерина Васильева",
     "«Нарвская застава: фиксация / фикция» — «Прографика», Санкт-Петербург. Куратор: Екатерина Васильева",
   ] },
-  { year: "2023—2022", items: [
+  { year: "2023 — 2022", items: [
     "«Самиздал» — Библиотека им. Гоголя, Санкт-Петербург. Куратор: Михаил Курганов",
     "The Borders — Батуми, Грузия, Particles Art Project",
     "«Вечное возвращение» — Wall-online.ru",
@@ -136,26 +136,28 @@ const programs = [
 ];
 
 const education = [
-  "2024—2026 · Институт современного искусства Иосифа Бакштейна, «Новые художественные стратегии»",
+  "2024 — 2026 · Институт современного искусства Иосифа Бакштейна, «Новые художественные стратегии»",
   "2025 · Авторский курс Ильи Шипиловских, «Летняя школа современного искусства»",
   "2024 · Авторский курс Дмитрия Лукьянова, «Свет в арт-фотографии»",
   "2023 · Университет ИТМО, «Креативное программирование: использование кода в искусстве»",
-  "2022—2023 · Авторские курсы Екатерины Васильевой, «Школа Walking Art на стыке антиискусства, философии и site-specific art»",
+  "2022 — 2023 · Авторские курсы Екатерины Васильевой, «Школа Walking Art на стыке антиискусства, философии и site-specific art»",
   "2022 · Школа интерпретации современного искусства «Пайдейя»",
   "2021 · Школа Родченко, «Still life в полевых условиях»",
-  "2011—2014 · Технологический институт, инженерное образование",
+  "2011 — 2014 · Технологический институт, инженерное образование",
 ];
 
 const collectives = [
-  "2026—н. в. · NoNameForNow",
-  "2026—н. в. · iK / Walking art group 100 km",
-  "2025—н. в. · ПОСТОРОННИЕ НЕНОРМАЛЬНЫЕ",
+  "2026 — н. в. · NoNameForNow",
+  "2026 — н. в. · iK / Walking art group 100 km",
+  "2025 — н. в. · ПОСТОРОННИЕ НЕНОРМАЛЬНЫЕ",
 ];
 
 const asset = (name) => `${import.meta.env.BASE_URL}assets/${name}`;
 
 function typograph(text) {
-  return text.replace(/(^|\s)([А-Яа-яЁёA-Za-z]{1,2})\s+/g, "$1$2\u00a0");
+  return text
+    .replace(/(\d)\s*[—–-]\s*(?=\d|н\.\s*в\.)/g, "$1\u00a0—\u00a0")
+    .replace(/(^|\s)([А-Яа-яЁёA-Za-z]{1,2}|без|для|над|под|при|про|как|или|вне)\s+/gi, "$1$2\u00a0");
 }
 
 function useHash() {
@@ -224,7 +226,7 @@ function WorkPage({ project }) {
 }
 
 function About() {
-  return <div className="paper-page info-page"><Header light /><main><a className="back" href="#/">← На главную</a><p className="kicker">ABOUT</p><h1>Андрей Усов — современный художник из Санкт-Петербурга.</h1><div className="about-copy"><p>{typograph("Я работаю с прогулкой, перформансом, видео и документацией, исследуя повседневность, движение и телесное присутствие в городской и природной среде.")}</p><p>{typograph("Используя прогулку как основной метод, я превращаю обыденные маршруты в форму наблюдения, свидетельства и фиксации времени.")}</p></div></main><Footer /></div>;
+  return <div className="paper-page info-page about-page"><Header light /><main><a className="back" href="#/">← На главную</a><p className="kicker">ABOUT</p><h1>Андрей Усов — современный художник из&nbsp;Санкт-Петербурга.</h1><div className="about-copy"><p>{typograph("Я работаю с прогулкой, перформансом, видео и документацией. В центре моей практики — повседневность, движение и телесное присутствие в городской и природной среде.")}</p><p>{typograph("Прогулка становится методом наблюдения: обыденные маршруты превращаются в свидетельства и способы фиксации времени.")}</p></div></main><Footer /></div>;
 }
 
 function CVSection({ title, children }) {
@@ -234,7 +236,7 @@ function CVSection({ title, children }) {
 function CV() {
   return <div className="paper-page info-page cv-page"><Header light /><main><a className="back" href="#/">← На главную</a><div className="cv-title"><p className="kicker">CV</p><h1>Андрей<br />Усов</h1></div>
     <section className="cv-intro"><img src={asset("cv-portrait.webp")} alt="Андрей Усов" /><div><p className="cv-lead">{typograph("Современный художник. Родился в Сибири, живёт и работает в Санкт-Петербурге.")}</p><p>{typograph("В своей практике работает с прогулкой, перформансом, видео и документацией, исследуя повседневность через движение, телесное присутствие, длительность и фиксацию.")}</p><div className="cv-contacts"><a href="mailto:i@andyusov.ru">i@andyusov.ru</a><a href="https://t.me/usovandrey" target="_blank" rel="noreferrer">Telegram</a><a href="https://www.instagram.com/i.andyusov/" target="_blank" rel="noreferrer">Instagram</a></div><p className="cv-updated">CV обновлено в сентябре 2026 года</p></div></section>
-    <CVSection title="ИЗБРАННЫЕ ВЫСТАВКИ"><div className="cv-years">{exhibitions.map((group) => <div key={group.year}><h2>{group.year}</h2><ul>{group.items.map((item) => <li key={item}>{typograph(item)}</li>)}</ul></div>)}</div></CVSection>
+    <CVSection title="ИЗБРАННЫЕ ВЫСТАВКИ"><div className="cv-years">{exhibitions.map((group) => <div key={group.year}><h2>{typograph(group.year)}</h2><ul>{group.items.map((item) => <li key={item}>{typograph(item)}</li>)}</ul></div>)}</div></CVSection>
     <CVSection title="ЛАБОРАТОРИИ И РЕЗИДЕНЦИИ"><ul className="cv-list">{programs.map((item) => <li key={item}>{typograph(item)}</li>)}</ul></CVSection>
     <CVSection title="ОБРАЗОВАНИЕ"><ul className="cv-list">{education.map((item) => <li key={item}>{typograph(item)}</li>)}</ul></CVSection>
     <CVSection title="ОБЪЕДИНЕНИЯ"><ul className="cv-list">{collectives.map((item) => <li key={item}>{typograph(item)}</li>)}</ul></CVSection>
