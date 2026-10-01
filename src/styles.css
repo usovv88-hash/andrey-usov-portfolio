@@ -769,7 +769,9 @@ img { display: block; max-width: 100%; }
   }
 
   .site-header nav { gap: 14px; }
-  .site-header nav a:nth-child(3),
+  /* На телефоне оставляем только ABOUT и CV: проекты уже идут ниже,
+     а контакты продублированы внизу страниц. */
+  .site-header nav a:nth-child(1),
   .site-header nav a:nth-child(4) { display: none; }
 
   .hero { min-height: 100svh; }
