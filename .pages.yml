@@ -94,6 +94,24 @@ content:
         type: text
         list: true
 
+  - name: statement
+    label: Artist Statement
+    type: file
+    path: src/content/statement.json
+    format: json
+    operations:
+      delete: false
+      rename: false
+    fields:
+      - name: title
+        label: Заголовок
+        type: text
+        required: true
+      - name: paragraphs
+        label: Абзацы
+        type: text
+        list: true
+
   - name: cv
     label: CV
     type: file

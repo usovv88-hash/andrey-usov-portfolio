@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import projects from "./content/projects.json";
 import about from "./content/about.json";
 import cv from "./content/cv.json";
+import statement from "./content/statement.json";
 
 const asset = (name) => {
   const filename = name.replace(/^\/?assets\//, "");
@@ -30,7 +31,7 @@ function useHash() {
 function Header({ light = false }) {
   return <header className={`site-header ${light ? "site-header--light" : ""}`}>
     <a className="brand" href="#/">ANDREY USOV</a>
-    <nav aria-label="Главная навигация"><a href="#works">WORKS</a><a href="#/about">ABOUT</a><a href="#/cv">CV</a><a href="mailto:i@andyusov.ru">CONTACT</a></nav>
+    <nav aria-label="Главная навигация"><a href="#works">WORKS</a><a href="#/about">ABOUT</a><a href="#/statement">STATEMENT</a><a href="#/cv">CV</a><a href="mailto:i@andyusov.ru">CONTACT</a></nav>
   </header>;
 }
 
@@ -83,6 +84,10 @@ function About() {
   return <div className="paper-page info-page about-page"><Header light /><main><a className="back" href="#/">← На главную</a><p className="kicker">ABOUT</p><h1>{typograph(about.title)}</h1><div className="about-copy">{about.paragraphs.map((paragraph) => <p key={paragraph}>{typograph(paragraph)}</p>)}</div></main><Footer /></div>;
 }
 
+function Statement() {
+  return <div className="paper-page info-page statement-page"><Header light /><main><a className="back" href="#/">← На главную</a><p className="kicker">ARTIST STATEMENT</p><h1>{typograph(statement.title)}</h1><div className="statement-copy">{statement.paragraphs.map((paragraph, index) => <p className={index === 0 ? "lead" : ""} key={paragraph}>{typograph(paragraph)}</p>)}</div></main><Footer /></div>;
+}
+
 function CVSection({ title, children }) {
   return <section className="cv-section"><p className="kicker">{title}</p><div>{children}</div></section>;
 }
@@ -103,6 +108,7 @@ function Footer() { return <footer className="footer"><p>© {new Date().getFullY
 export function App() {
   const hash = useHash();
   if (hash === "#/about") return <About />;
+  if (hash === "#/statement") return <Statement />;
   if (hash === "#/cv") return <CV />;
   if (hash.startsWith("#/work/")) return <WorkPage project={projects.find((project) => project.slug === hash.split("/")[2])} />;
   return <Home />;
