@@ -1,0 +1,173 @@
+media:
+  - name: images
+    label: Изображения сайта
+    input: public/assets
+    output: /assets
+    categories: [image]
+
+content:
+  - name: projects
+    label: Проекты
+    type: file
+    path: src/content/projects.json
+    format: json
+    list: true
+    operations:
+      delete: false
+      rename: false
+    fields:
+      - name: slug
+        label: Адрес проекта
+        type: string
+        readonly: true
+        description: Системное поле. Лучше не менять, чтобы ссылка на проект не сломалась.
+      - name: title
+        label: Название
+        type: string
+        required: true
+      - name: year
+        label: Год
+        type: string
+        required: true
+      - name: meta
+        label: Формат и материалы
+        type: string
+      - name: image
+        label: Обложка проекта
+        type: image
+        required: true
+        options:
+          media: images
+          extensions: [jpg, jpeg, png, webp]
+          rename: safe
+      - name: label
+        label: Верхняя подпись
+        type: string
+      - name: intro
+        label: Вводный абзац
+        type: text
+      - name: paragraphs
+        label: Основной текст
+        type: text
+        list: true
+      - name: note
+        label: Итоговая строка
+        type: string
+      - name: caption
+        label: Подпись под основной фотографией
+        type: string
+      - name: gallery
+        label: Галерея
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{caption}"
+        fields:
+          - name: image
+            label: Фотография
+            type: image
+            required: true
+            options:
+              media: images
+              extensions: [jpg, jpeg, png, webp]
+              rename: safe
+          - name: caption
+            label: Подпись
+            type: string
+
+  - name: about
+    label: About
+    type: file
+    path: src/content/about.json
+    format: json
+    operations:
+      delete: false
+      rename: false
+    fields:
+      - name: title
+        label: Заголовок
+        type: text
+        required: true
+      - name: paragraphs
+        label: Абзацы
+        type: text
+        list: true
+
+  - name: cv
+    label: CV
+    type: file
+    path: src/content/cv.json
+    format: json
+    operations:
+      delete: false
+      rename: false
+    fields:
+      - name: firstName
+        label: Имя
+        type: string
+      - name: lastName
+        label: Фамилия
+        type: string
+      - name: portrait
+        label: Фотография
+        type: image
+        options:
+          media: images
+          extensions: [jpg, jpeg, png, webp]
+          rename: safe
+      - name: lead
+        label: Главная строка
+        type: text
+      - name: body
+        label: Описание практики
+        type: text
+      - name: updated
+        label: Дата обновления
+        type: string
+      - name: contacts
+        label: Контакты
+        type: object
+        fields:
+          - name: email
+            label: Email
+            type: string
+          - name: telegram
+            label: Ссылка на Telegram
+            type: string
+          - name: instagram
+            label: Ссылка на Instagram
+            type: string
+      - name: exhibitions
+        label: Избранные выставки
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{year}"
+        fields:
+          - name: year
+            label: Год
+            type: string
+          - name: items
+            label: Выставки
+            type: text
+            list: true
+      - name: programs
+        label: Лаборатории и резиденции
+        type: text
+        list: true
+      - name: education
+        label: Образование
+        type: text
+        list: true
+      - name: collectives
+        label: Объединения
+        type: text
+        list: true
+
+settings:
+  content:
+    merge: direct
+  commit:
+    message: "Обновить {collection}: {filename}"
